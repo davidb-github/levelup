@@ -3,11 +3,34 @@
         "model": "levelupapi.game",
         "pk": 1,
         "fields": {
-            "title": "Here is a title",
+            "title": "Duck hunt",
             "game_type": 1,
-            "number_of_players": 8,
+            "number_of_players": 4,
             "gamer": 1,
-            "description": "Here is a description"
+            "description": "ducks and ducks and ducks"
+        }
+    },
+    {
+        "model": "levelupapi.game",
+        "pk": 2,
+        "fields": {
+            "title": "Duck hunt II",
+            "game_type": 2,
+            "number_of_players": 4,
+            "gamer": 1,
+            "description": "Duck Season part II"
+        }
+    },
+    {
+        "model": "levelupapi.game",
+        "pk": 3,
+        "fields": {
+            "title": "Duck hunt III",
+            "game_type": 3,
+            "number_of_players": 4,
+            "gamer": 1,
+            "description": "We're out of ducks"
         }
     }
 ]
+
