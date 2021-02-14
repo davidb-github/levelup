@@ -5,7 +5,8 @@
             "previewLimit": 50,
             "driver": "SQLite",
             "name": "levelup",
-            "database": "${workspaceFolder:levelup}/db.sqlite3"
+            "database": "${workspaceFolder:levelup-server}/db.sqlite3"
         }
-    ]
+    ],
+    "python.pythonPath": "/Users/davidb/.local/share/virtualenvs/levelup-server-Dwi5myR0/bin/python"
 }

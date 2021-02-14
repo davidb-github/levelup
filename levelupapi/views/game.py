@@ -19,30 +19,26 @@ class Games(ViewSet):
             Response -- JSON serialized game instance
         """
 
-        # Uses the token passed in the `Authorization` header
-        gamer = Gamer.objects.get(user=request.auth.user)
+
 
         # Create a new Python instance of the Game class
         # and set its properties from what was sent in the
         # body of the request from the client.
         game = Game()
         game.title = request.data["title"]
-        game_type  = request.data["game_type"]
+        game.maker = request.data["maker"]
         game.number_of_players = request.data["numberOfPlayers"]
+        game.skill_level = request.data["skillLevel"]
+        # Uses the token passed in the `Authorization` header
+        gamer = Gamer.objects.get(user=request.auth.user)
         game.gamer = gamer
-        game.description = request.data["description"]
 
-        # game.title = request.data["title"]
-        # game.maker = request.data["maker"]
-        # game.number_of_players = request.data["numberOfPlayers"]
-        # game.skill_level = request.data["skillLevel"]
-        # game.gamer = gamer
 
         # Use the Django ORM to get the record from the database
         # whose `id` is what the client passed as the
         # `gameTypeId` in the body of the request.
         gametype = GameType.objects.get(pk=request.data["gameTypeId"])
-        game.gametype = gametype
+        game.game_type = gametype
 
         # Try to save the new game to the database, then
         # serialize the game instance as JSON, and send the
@@ -91,13 +87,14 @@ class Games(ViewSet):
         # from the database whose primary key is `pk`
         game = Game.objects.get(pk=pk)
         game.title = request.data["title"]
-        game.game_type = request.data["game_type"]
+        game.maker = request.data["maker"]
+        game.gamer = gamer
         game.number_of_players = request.data["numberOfPlayers"]
-        game.gamer = request.data["gamer"]
-        game.description = request.data["description"]
+        game.skill_level       = request.data["skillLevel"]
+
 
         gametype = GameType.objects.get(pk=request.data["gameTypeId"])
-        game.gametype = gametype
+        game.game_type = gametype
         game.save()
 
         # 204 status code means everything worked but the
@@ -151,5 +148,5 @@ class GameSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Game
-        fields = ('id', 'title', 'game_type', 'number_of_players', 'gamer', 'description')
+        fields = ('id', 'title', 'game_type', 'number_of_players', 'gamer', 'skill_level', 'maker')
         depth = 1
