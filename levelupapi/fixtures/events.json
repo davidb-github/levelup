@@ -3,9 +3,29 @@
         "model": "levelupapi.event",
         "pk": 1,
         "fields": {
-            "event_time": "2021-02-28",
+            "event_time": "2021-02-17",
             "game": 1,
-            "location": "Here is a location",
+            "location": "BNA",
+            "scheduler": 1
+        }
+    },
+    {
+        "model": "levelupapi.event",
+        "pk": 2,
+        "fields": {
+            "event_time": "2021-02-18",
+            "game": 2,
+            "location": "NSS",
+            "scheduler": 1
+        }
+    },
+    {
+        "model": "levelupapi.event",
+        "pk": 3,
+        "fields": {
+            "event_time": "2021-02-19",
+            "game": 3,
+            "location": "PHX",
             "scheduler": 1
         }
     }
