@@ -1,6 +1,2 @@
 levelup.session.sql
-levelup/__pycache__/urls.cpython-38.pyc
-levelupapi/__pycache__/__init__.cpython-38.pyc
-levelupapi/views/__pycache__/__init__.cpython-38.pyc
-levelupapi/views/__pycache__/auth.cpython-38.pyc
-levelup/__pycache__/urls.cpython-38.pyc
+*.pyc
