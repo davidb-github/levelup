@@ -17,12 +17,13 @@ class Events(ViewSet):
         game = Game.objects.get(pk=request.data["gameId"])
         event.event_time    = request.data["eventTime"]
         event.game          = game
+        event.scheduler     = scheduler
         event.location      = ["location"]
 
         try:
             event.save()
             serializer = EventSerializer(event, context={'request': request})
-            return Response(serializer.data)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
         except ValidationError as ex:
             return Response({"reason": ex.message}, status=status.HTTP_400_BAD_REQUEST)
 
